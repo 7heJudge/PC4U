@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ec67698c-4141-4a82-9427-444b9422de56" name="pc4u_server" url="http://hosting.insave.ovh">
+        <fileTransfer host="hosting.insave.ovh" port="21" rootFolder="/yan.insave.ovh">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
