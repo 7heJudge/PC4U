@@ -36,11 +36,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('kucerenko171@gmail.com'),
-            'password' => env('yanuck23'),
+            'host' => env('MAIL_HOST', '127.0.0.1'),
+            'port' => env('MAIL_PORT', 25),
+            'encryption' => env('MAIL_ENCRYPTION', 'null'),
+            'username' => env('pc4u_sender@yan.insave.ovh'),
+            'password' => env('Sn70^s<!^a*l'),
             'timeout' => null,
             'auth_mode' => null,
         ],
