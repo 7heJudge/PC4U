@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +47,8 @@ Route::get('/profile', function () {
 })->middleware('verified');
 //End section Email Verification
 
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::get('/test', function () {
-        return view('test');
-    });
+Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');
+
+    Route::resource('category', CategoryController::class);
 });
