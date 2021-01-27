@@ -418,6 +418,10 @@
     width: 100%;
 }
 
+.w300px {
+    width: 300px;
+}
+
 .db {
     display: block;
 }

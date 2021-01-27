@@ -25,8 +25,7 @@
     <link rel="stylesheet" href="../../../public/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="../../../public/admin/plugins/daterangepicker/daterangepicker.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="../../../public/admin/plugins/summernote/summernote-bs4.min.css">
+    <link href="../../../public/admin/dist/css/colorbox.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../public/css/function.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -74,7 +73,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-store-alt"></i>
                             <p>
-                                Блог
+                                Товары
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -85,7 +84,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
+                                <a href="{{ route('product.create') }}" class="nav-link">
                                     <p>Добавить товар</p>
                                 </a>
                             </li>
@@ -167,6 +166,9 @@
 <script src="../../../public/admin/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../../../public/admin/dist/js/pages/dashboard.js"></script>
+<script src="https://cdn.tiny.cloud/1/pk040ho3yh1uyv4mjf9esoht9uwwiabgq77vksgi90fveupi/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript" src="../../../public/admin/dist/js/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="../../../public/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
 <script src="../../../public/admin/admin.js"></script>
 </body>
 </html>
