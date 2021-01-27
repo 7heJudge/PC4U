@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Добавить товар')
+@section('title', 'Редактировать товар')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавить товар</h1>
+                    <h1 class="m-0">Редактировать товар: {{ $product['title'] }}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
             @if(session('success'))
@@ -30,36 +30,37 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('product.store') }}" method="post">
+                        <form action="{{ route('product.update', $product['id']) }}" method="post">
                             @csrf
+                            @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Название</label>
-                                    <input type="text" name="title" class="form-control" id="exampleInputEmail1"
+                                    <input type="text" value="{{ $product['title'] }}" name="title" class="form-control" id="exampleInputEmail1"
                                            placeholder="Введите название товара" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Выберите категорию</label>
                                     <select name="cat_id" class="form-control" required>
                                         @foreach($categories as $category)
-                                            <option value="{{ $category['id'] }}">{{ $category['title'] }}</option>
+                                            <option value="{{ $category['id'] }}" @if($category['id'] == $product['cat_id']) selected @endif>{{ $category['title'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="text" class="editor"></textarea>
+                                    <textarea name="text" class="editor">{{ $product['text'] }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="feature_image">Текущее изображение</label>
-                                    <img src="" alt="" class="img-uploaded db w300px">
-                                    <input type="text" name="img" class="form-control" id="feature_image" value="" readonly>
+                                    <img src="/{{ $product['img'] }}" alt="" class="img-uploaded db w300px">
+                                    <input type="text" name="img" class="form-control" id="feature_image" value="{{ $product['img'] }}" readonly>
                                     <a href="" class="popup_selector" data-inputid="feature_image">Выбрать изображение</a>
                                 </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Добавить</button>
+                                <button type="submit" class="btn btn-primary">Обновить</button>
                             </div>
                         </form>
                     </div>

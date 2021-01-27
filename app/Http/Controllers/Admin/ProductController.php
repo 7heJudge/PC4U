@@ -16,7 +16,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::orderBy('created_at', 'DESC')->get();
+
+        return view('admin.product.index', [
+            'products' => $products
+        ]);
     }
 
     /**
@@ -40,7 +44,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->title = $request->title;
+        $product->img = $request->img;
+        $product->text = $request->text;
+        $product->cat_id = $request->cat_id;
+        $product->save();
+
+        return redirect()->back()->withSuccess('Товар был успешно добавлен!');
     }
 
     /**
@@ -62,7 +73,11 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+        return view('admin.product.edit', [
+            'categories' => $categories,
+            'product' => $product
+        ]);
     }
 
     /**
@@ -74,7 +89,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->title = $request->title;
+        $product->img = $request->img;
+        $product->text = $request->text;
+        $product->cat_id = $request->cat_id;
+        $product->save();
+
+        return redirect()->back()->withSuccess('Товар был успешно обновлен!');
     }
 
     /**

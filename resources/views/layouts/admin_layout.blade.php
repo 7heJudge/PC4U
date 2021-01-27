@@ -79,7 +79,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
+                                <a href="{{ route('product.index') }}" class="nav-link">
                                     <p>Все товары</p>
                                 </a>
                             </li>
