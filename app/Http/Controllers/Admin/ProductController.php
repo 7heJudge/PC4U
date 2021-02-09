@@ -49,6 +49,8 @@ class ProductController extends Controller
         $product->img = $request->img;
         $product->text = $request->text;
         $product->cat_id = $request->cat_id;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
         $product->save();
 
         return redirect()->back()->withSuccess('Товар был успешно добавлен!');
@@ -93,6 +95,8 @@ class ProductController extends Controller
         $product->img = $request->img;
         $product->text = $request->text;
         $product->cat_id = $request->cat_id;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
         $product->save();
 
         return redirect()->back()->withSuccess('Товар был успешно обновлен!');

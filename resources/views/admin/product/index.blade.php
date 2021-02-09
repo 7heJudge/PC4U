@@ -41,6 +41,12 @@
                                     Категория
                                 </th>
                                 <th>
+                                    Цена
+                                </th>
+                                <th>
+                                    Количество
+                                </th>
+                                <th>
                                     Дата добавления
                                 </th>
                                 <th style="width: 30%">
@@ -58,6 +64,12 @@
                                     </td>
                                     <td>
                                         {{ $product->category['title'] }}
+                                    </td>
+                                    <td>
+                                        {{ $product['price'] }}
+                                    </td>
+                                    <td>
+                                        {{ $product['quantity'] }}
                                     </td>
                                     <td>
                                         {{ $product['created_at'] }}

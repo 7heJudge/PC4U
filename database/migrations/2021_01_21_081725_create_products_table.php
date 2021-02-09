@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('img');
             $table->text('text');
             $table->bigInteger('cat_id')->unsigned();
+            $table->bigInteger('price')->unsigned();
+            $table->bigInteger('quantity')->unsigned();
             $table->timestamps();
         });
     }
