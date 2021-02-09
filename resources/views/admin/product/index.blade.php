@@ -68,7 +68,7 @@
                                             </i>
                                             Редактировать
                                         </a>
-                                        <form class="dib" action="{{ route('category.destroy', $product['id']) }}" method="post">
+                                        <form class="dib" action="{{ route('product.destroy', $product['id']) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm delete-btn">

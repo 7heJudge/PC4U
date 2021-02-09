@@ -51,6 +51,8 @@ Route::get('/profile', function () {
 Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');
 
+    Route::get('/admin_panel', [App\Http\Controllers\Admin\HomeController::class, 'admin_panel'])->name('admin_panel');
+
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
 });
