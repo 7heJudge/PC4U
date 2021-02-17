@@ -18,15 +18,29 @@ use App\Http\Controllers\Admin\ProductController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('home.index');
-});
+})->name('home');
+
+/*Route::get('/store', function () {
+    return view('home.store');
+})->name('store');*/
+
+/*Route::get('/store', function () {
+    return view('home.store');
+});*/
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
+Route::get('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('store');
 
-//Section Email Verification
+Route::get('/', [App\Http\Controllers\HomeController::class, 'main_page'])->name('home');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'profile'])->middleware('verified')->name('profile_home');
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'profile'])->middleware('verified')->name('profile_home');
+
+//Section Email Verification------------------------------------------------------------------------------------------------
 Route::get('/email/verify', function () {
     return view('verify');
 })->middleware('auth')->name('verification.notice');
@@ -46,7 +60,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('/profile', function () {
     // Only verified users may access this route...
 })->middleware('verified');
-//End section Email Verification
+//End section Email Verification---------------------------------------------------------------------------------------------------
 
 Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');

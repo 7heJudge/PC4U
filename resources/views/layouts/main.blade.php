@@ -37,7 +37,9 @@
 </head>
 <body>
 @include('inc.header')
+@include('inc.navigation')
 @yield('content')
+@include('inc.newsletter')
 @include('inc.footer')
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

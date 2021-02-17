@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        //doesn`t let on page until guest logged in
+        //$this->middleware(['auth','verified']);
     }
 
     /**
@@ -21,8 +23,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function profile()
     {
         return view('profile.home');
+    }
+    public function main_page()
+    {
+        return view('home.index');
+    }
+    public function store()
+    {
+        $products = Product::orderBy('created_at', 'desc')->get();
+
+        return view('home.store' ,[
+            'products' => $products
+        ]);
     }
 }
