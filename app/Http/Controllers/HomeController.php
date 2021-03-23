@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -34,9 +35,11 @@ class HomeController extends Controller
     public function store()
     {
         $products = Product::orderBy('created_at', 'desc')->get();
+        $categories = Category::orderBy('created_at', 'DESC')->get();
 
         return view('home.store' ,[
-            'products' => $products
+            'products' => $products,
+            'categories' => $categories
         ]);
     }
 }

@@ -34,6 +34,12 @@ Auth::routes(['verify' => true]);
 
 Route::get('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('store');
 
+Route::get('/store/{cat_id}/{id}', [App\Http\Controllers\Admin\ProductController::class, 'show'])->name('product');
+
+//Route::get('/{cat_id}/{id}', function () {
+//    return view('product.show');
+//})->name('product');
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'main_page'])->name('home');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'profile'])->middleware('verified')->name('profile_home');

@@ -62,9 +62,20 @@ class ProductController extends Controller
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+//    public function show(Product $product)
+//    {
+//
+//    }
+
+    public function show($cat_id, $id)
     {
-        //
+        $item = Product::where('id', $id)->first();
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+
+        return view('product.show' ,[
+            'item' => $item,
+            'categories' => $categories
+        ]);
     }
 
     /**

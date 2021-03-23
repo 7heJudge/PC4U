@@ -239,10 +239,10 @@
                                 </select>
                             </label>
                         </div>
-                        <ul class="store-grid">
-                            <li class="active"><i class="fa fa-th"></i></li>
-                            <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-                        </ul>
+{{--                        <ul class="store-grid">--}}
+{{--                            <li class="active"><i class="fa fa-th"></i></li>--}}
+{{--                            <li><a href="#"><i class="fa fa-th-list"></i></a></li>--}}
+{{--                        </ul>--}}
                     </div>
                     <!-- /store top filter -->
 
@@ -250,6 +250,15 @@
                     <div class="row">
                     @foreach($products as $product)
                         <!-- product -->
+                            @php
+                                $image = '';
+                                    if(count($product['images']) > 0) {
+                                    $image = $product['images'][0]['img'];
+                                }
+                                else {
+                                    $image = 'no_image.png';
+                                }
+                            @endphp
                             <div class="col-md-4 col-xs-6">
                                 <div class="product">
                                     <div class="product-img">
@@ -260,10 +269,15 @@
                                         </div>
                                     </div>
                                     <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name"><a href="#">{{ $product['title'] }}</a></h3>
+                                        @foreach($categories as $category)
+                                            @if ($category['id'] == $product['cat_id'])
+                                        <p class="product-category">{{ $category['title'] }}</p>
+                                            @endif
+                                        @endforeach
+                                        <h3 class="product-name"><a href="{{ route('product', ['cat_id',$product['id']]) }}">{{ $product['title'] }}</a></h3>
                                         <h4 class="product-price">₴{{ $product['price'] }}
                                             {{--<del class="product-old-price">$990.00</del>--}}
+                                        </h4>
                                         </h4>
                                         <div class="product-rating">
                                             <i class="fa fa-star"></i>
@@ -275,8 +289,8 @@
                                         <div class="product-btns">
                                             <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
                                                     class="tooltipp">add to wishlist</span></button>
-                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span
-                                                    class="tooltipp">add to compare</span></button>
+{{--                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span--}}
+{{--                                                    class="tooltipp">add to compare</span></button>--}}
                                             <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span>
                                             </button>
                                         </div>
