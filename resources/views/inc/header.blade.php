@@ -6,11 +6,15 @@
             <ul class="header-links pull-left">
                 <li><a href="#"><i class="fa fa-phone"></i> +380 (68) 463 31 48</a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> pc4u_sender@yan.insave.ovh</a></li>
-                <li><a href="#"><i class="fa fa-map-marker"></i> Ukraine, Dnipro</a></li>
+                <li><a href="#"><i class="fa fa-map-marker"></i> Украина, Днепр</a></li>
             </ul>
             <ul class="header-links pull-right">
-                <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                <li><a href="{{ route('login') }}"><i class="fa fa-user-o"></i> My Account</a></li>
+                <li><a href="#"><i class="fa fa-money"></i> UAH</a></li>
+                @if (!Auth::user())
+                <li><a href="{{ route('login') }}"><i class="fa fa-user-o"></i> Мой аккаунт</a></li>
+                @else
+                    <li><a href="{{ route('login') }}"><i class="fa fa-user-o"></i> {{ Auth::user()->name }}</a></li>
+                @endif
             </ul>
         </div>
     </div>
@@ -41,8 +45,8 @@
                                 <option value="1">Category 01</option>
                                 <option value="1">Category 02</option>
                             </select>
-                            <input class="input" placeholder="Search here">
-                            <button class="search-btn">Search</button>
+                            <input class="input" placeholder="Искать здесь">
+                            <button class="search-btn">Найти</button>
                         </form>
                     </div>
                 </div>
@@ -55,7 +59,7 @@
                         <div>
                             <a href="#">
                                 <i class="fa fa-heart-o"></i>
-                                <span>Your Wishlist</span>
+                                <span>Ваш список желаемого</span>
                                 <div class="qty">2</div>
                             </a>
                         </div>
@@ -65,7 +69,7 @@
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span>Your Cart</span>
+                                <span>Ваша корзина</span>
                                 <div class="qty">3</div>
                             </a>
                             <div class="cart-dropdown">

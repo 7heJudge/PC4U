@@ -36,6 +36,8 @@ Route::get('/store', [App\Http\Controllers\HomeController::class, 'store'])->nam
 
 Route::get('/store/{cat_id}/{id}', [App\Http\Controllers\Admin\ProductController::class, 'show'])->name('product');
 
+Route::get('/store/category-{cat_id}', [App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('categories');
+
 //Route::get('/{cat_id}/{id}', function () {
 //    return view('product.show');
 //})->name('product');

@@ -5,27 +5,27 @@
 @endsection
 
 @section('content')
-    <!-- BREADCRUMB -->
-    <div id="breadcrumb" class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="breadcrumb-tree">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">All Categories</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Headphones</a></li>
-                        <li class="active">Product name goes here</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /BREADCRUMB -->
+{{--    <!-- BREADCRUMB -->--}}
+{{--    <div id="breadcrumb" class="section">--}}
+{{--        <!-- container -->--}}
+{{--        <div class="container">--}}
+{{--            <!-- row -->--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-12">--}}
+{{--                    <ul class="breadcrumb-tree">--}}
+{{--                        <li><a href="#">Home</a></li>--}}
+{{--                        <li><a href="#">All Categories</a></li>--}}
+{{--                        <li><a href="#">Accessories</a></li>--}}
+{{--                        <li><a href="#">Headphones</a></li>--}}
+{{--                        <li class="active">Product name goes here</li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- /row -->--}}
+{{--        </div>--}}
+{{--        <!-- /container -->--}}
+{{--    </div>--}}
+{{--    <!-- /BREADCRUMB -->--}}
 
     <!-- SECTION -->
     <div class="section">
@@ -98,23 +98,23 @@
                             @else <span class="product-available">Not available</span>
                             @endif
                         </div>
-                        <p>{{ $item['text'] }}
+                        <p><?php echo $item['text']; ?>
                         </p>
 
-                        <div class="product-options">
-                            <label>
-                                Size
-                                <select class="input-select">
-                                    <option value="0">X</option>
-                                </select>
-                            </label>
-                            <label>
-                                Color
-                                <select class="input-select">
-                                    <option value="0">Red</option>
-                                </select>
-                            </label>
-                        </div>
+{{--                        <div class="product-options">--}}
+{{--                            <label>--}}
+{{--                                Size--}}
+{{--                                <select class="input-select">--}}
+{{--                                    <option value="0">X</option>--}}
+{{--                                </select>--}}
+{{--                            </label>--}}
+{{--                            <label>--}}
+{{--                                Color--}}
+{{--                                <select class="input-select">--}}
+{{--                                    <option value="0">Red</option>--}}
+{{--                                </select>--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
 
                         <div class="add-to-cart">
                             <div class="qty-label">
@@ -135,8 +135,11 @@
 
                         <ul class="product-links">
                             <li>Category:</li>
-                            <li><a href="#">Headphones</a></li>
-                            <li><a href="#">Accessories</a></li>
+                            @foreach($categories as $category)
+                                @if ($category['id'] == $item['cat_id'])
+                                    <li><a href="#">{{ $category['title'] }}</a></li>
+                                @endif
+                            @endforeach
                         </ul>
 
                         <ul class="product-links">
@@ -168,7 +171,7 @@
                             <div id="tab1" class="tab-pane fade in active">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p>{{ $item['text'] }}</p>
+                                        <p><?php echo $item['text']; ?></p>
                                     </div>
                                 </div>
                             </div>

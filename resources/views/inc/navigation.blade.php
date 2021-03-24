@@ -6,13 +6,16 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
-                <li><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="{{ route('store') }}">All products</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Laptops</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">Cameras</a></li>
-                <li><a href="#">Accessories</a></li>
+                <li><a href="{{ route('home') }}">Домой</a></li>
+                <li><a href="{{ route('store') }}">Все товары</a></li>
+                @foreach($categories as $category)
+                    <li><a href="{{ route('categories', $category['id']) }}">{{ $category['title'] }}</a></li>
+                @endforeach
+{{--                <li><a href="#">Categories</a></li>--}}
+{{--                <li><a href="#">Laptops</a></li>--}}
+{{--                <li><a href="#">Smartphones</a></li>--}}
+{{--                <li><a href="#">Cameras</a></li>--}}
+{{--                <li><a href="#">Accessories</a></li>--}}
             </ul>
             <!-- /NAV -->
         </div>

@@ -5,26 +5,26 @@
 @endsection
 
 @section('content')
-    <!-- BREADCRUMB -->
-    <div id="breadcrumb" class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="breadcrumb-tree">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">All Categories</a></li>
-                        <li><a href="#">Accessories</a></li>
-                        <li class="active">Headphones (227,490 Results)</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /BREADCRUMB -->
+{{--    <!-- BREADCRUMB -->--}}
+{{--    <div id="breadcrumb" class="section">--}}
+{{--        <!-- container -->--}}
+{{--        <div class="container">--}}
+{{--            <!-- row -->--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-12">--}}
+{{--                    <ul class="breadcrumb-tree">--}}
+{{--                        <li><a href="#">Home</a></li>--}}
+{{--                        <li><a href="#">All Categories</a></li>--}}
+{{--                        <li><a href="#">Accessories</a></li>--}}
+{{--                        <li class="active">Headphones (227,490 Results)</li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- /row -->--}}
+{{--        </div>--}}
+{{--        <!-- /container -->--}}
+{{--    </div>--}}
+{{--    <!-- /BREADCRUMB -->--}}
 
     <!-- SECTION -->
     <div class="section">
@@ -288,15 +288,15 @@
                                         </div>
                                         <div class="product-btns">
                                             <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                                    class="tooltipp">add to wishlist</span></button>
+                                                    class="tooltipp">В желаемое</span></button>
 {{--                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span--}}
 {{--                                                    class="tooltipp">add to compare</span></button>--}}
-                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span>
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Просмотр</span>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> В корзину
                                         </button>
                                     </div>
                                 </div>

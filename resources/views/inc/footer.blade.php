@@ -8,25 +8,27 @@
             <div class="row">
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">About Us</h3>
+                        <h3 class="footer-title">Про нас</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-                            <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+                            <li><a href="#"><i class="fa fa-map-marker"></i>Украина, Днепр</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i>+380 (68) 463 31 48</a></li>
+                            <li><a href="#"><i class="fa fa-envelope-o"></i>pc4u_sender@yan.insave.ovh</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Categories</h3>
+                        <h3 class="footer-title">Категории</h3>
                         <ul class="footer-links">
-                            <li><a href="#">Hot deals</a></li>
-                            <li><a href="#">Laptops</a></li>
-                            <li><a href="#">Smartphones</a></li>
-                            <li><a href="#">Cameras</a></li>
-                            <li><a href="#">Accessories</a></li>
+                            @foreach($categories as $category)
+                            <li><a href="#">{{ $category['title'] }}</a></li>
+{{--                            <li><a href="#">Laptops</a></li>--}}
+{{--                            <li><a href="#">Smartphones</a></li>--}}
+{{--                            <li><a href="#">Cameras</a></li>--}}
+{{--                            <li><a href="#">Accessories</a></li>--}}
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -81,7 +83,7 @@
                     </ul>
                     <span class="copyright">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</span>
                 </div>

@@ -26,7 +26,7 @@
                         <div class="inner">
                             <h3>{{ $products_count }}</h3>
 
-                            <p>Товары</p>
+                            <p>Товаров</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -41,7 +41,7 @@
                         <div class="inner">
                             <h3>{{ $categories_count }}</h3>
 
-                            <p>Категории</p>
+                            <p>Категорий</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -54,9 +54,9 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>{{ $users_count }}</h3>
 
-                            <p>User Registrations</p>
+                            <p>Пользователей</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
