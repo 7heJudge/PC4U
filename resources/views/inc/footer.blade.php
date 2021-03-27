@@ -9,7 +9,7 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
                         <h3 class="footer-title">Про нас</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>--}}
                         <ul class="footer-links">
                             <li><a href="#"><i class="fa fa-map-marker"></i>Украина, Днепр</a></li>
                             <li><a href="#"><i class="fa fa-phone"></i>+380 (68) 463 31 48</a></li>

@@ -34,7 +34,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('store');
 
-Route::get('/store/{cat_id}/{id}', [App\Http\Controllers\Admin\ProductController::class, 'show'])->name('product');
+Route::get('/store/category-{cat_id}/{id}', [App\Http\Controllers\Admin\ProductController::class, 'show'])->name('product');
 
 Route::get('/store/category-{cat_id}', [App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('categories');
 

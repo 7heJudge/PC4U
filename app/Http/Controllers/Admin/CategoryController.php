@@ -52,9 +52,13 @@ class CategoryController extends Controller
      * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($category)
     {
+        $cat = Category::where('id', $category)->first();
 
+        return view('categories.index', [
+            'cat' => $cat
+        ]);
     }
 
     /**
