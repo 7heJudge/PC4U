@@ -67,10 +67,34 @@ class ProductController extends Controller
 //
 //    }
 
-    public function show($cat_id, $id)
+    public function show(Request $request,$cat_id,$id)
     {
         $item = Product::where('id', $id)->first();
         $categories = Category::orderBy('created_at', 'DESC')->get();
+
+        if(isset($request->orderBy)){
+            if ($request->orderBy == 'price-low-high'){
+                $products = Product::where('id', $item['id'])->orderBy('price')->get();
+            }
+            if ($request->orderBy == 'price-high-low'){
+                $products = Product::where('id', $item['id'])->orderBy('price','desc')->get();
+            }
+            if ($request->orderBy == 'name-a-z'){
+                $products = Product::where('id', $item['id'])->orderBy('title')->get();
+            }
+            if ($request->orderBy == 'name-z-a'){
+                $products = Product::where('id', $item['id'])->orderBy('title','desc')->get();
+            }
+        }
+
+        if($request->ajax()){
+            return view('ajax.order-by', [
+                'item' => $item
+            ])->render();
+        }
+//        if ($request->ajax()){
+//            return $request->orderBy;
+//        }
 
         return view('product.show' ,[
             'item' => $item,

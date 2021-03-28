@@ -224,13 +224,35 @@
                     <div class="store-filter clearfix">
                         <div class="store-sort">
                             <label>
-                                <select class="input-select">
-                                    <option class="product_sorting_btn" selected value="0">Стардарт</option>
-                                    <option class="product_sorting_btn" value="1">От дешёвых к дорогим</option>
-                                    <option class="product_sorting_btn" value="2">От дорогих к дешёвым</option>
-                                    <option class="product_sorting_btn" value="3">По названию, от А-Я</option>
-                                    <option class="product_sorting_btn" value="4">По названию, от Я-А</option>
-                                </select>
+                                {{--                                <select class="input-select">--}}
+                                {{--                                    <option class="product_sorting_btn" selected value="0">Стардарт</option>--}}
+                                {{--                                    <option class="product_sorting_btn" value="1">От дешёвых к дорогим</option>--}}
+                                {{--                                    <option class="product_sorting_btn" value="2">От дорогих к дешёвым</option>--}}
+                                {{--                                    <option class="product_sorting_btn" value="3">По названию, от А-Я</option>--}}
+                                {{--                                    <option class="product_sorting_btn" value="4">По названию, от Я-А</option>--}}
+                                {{--                                </select>--}}
+                                <div class="sorting_container ml-md-auto">
+                                    <div class="sorting">
+                                        <ul class="item_sorting">
+                                            <li>
+                                                <span class="sorting_text">Сортировка</span>
+                                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                                <ul>
+                                                    <li class="product_sorting_btn" data-order="default">
+                                                        <span>Стандарт</span></li>
+                                                    <li class="product_sorting_btn" data-order="price-low-high"><span>От дешёвых к дорогим</span>
+                                                    </li>
+                                                    <li class="product_sorting_btn" data-order="price-high-low"><span>От дорогих к дешёвым</span>
+                                                    </li>
+                                                    <li class="product_sorting_btn" data-order="name-a-z"><span>По названию, от А-Я</span>
+                                                    </li>
+                                                    <li class="product_sorting_btn" data-order="name-z-a"><span>По названию, от Я-А</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </label>
 
                             <label>
@@ -249,8 +271,8 @@
                     <!-- /store top filter -->
 
                     <!-- store products -->
-                    <div class="row">
-                    @foreach($cat->products as $product)
+                    <div class="row product-grid">
+                    @foreach($products as $product)
                         <!-- product -->
                             @php
                                 $image = '';
@@ -277,7 +299,9 @@
                                         {{--                                            @endif--}}
                                         {{--                                        @endforeach--}}
                                         <p class="product-category">{{ $product->category['title'] }}</p>
-                                        <h3 class="product-name"><a href="{{ route('product', ['cat_id',$product['id']]) }}">{{ $product['title'] }}</a></h3>
+                                        <h3 class="product-name"><a
+                                                href="{{ route('product', [$product['cat_id'],$product['id']]) }}">{{ $product['title'] }}</a>
+                                        </h3>
                                         <h4 class="product-price">₴{{ $product['price'] }}
                                             {{--<del class="product-old-price">$990.00</del>--}}
                                         </h4>
@@ -332,3 +356,4 @@
     </div>
     <!-- /SECTION -->
 @endsection
+

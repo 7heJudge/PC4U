@@ -166,3 +166,32 @@
 	}
 
 })(jQuery);
+$(document).ready(function () {
+    $('.product_sorting_btn').click(function () {
+        let orderBy = $(this).data('order');
+        let url = $(this).data('href');
+        $('.sorting_text').text($(this).find('span').text())
+        // console.log(orderBy);
+
+        $.ajax({
+            url: url,
+            // url: '{{route('categories', $cat['id'])}}',
+            type: "GET",
+            data: {
+                orderBy: orderBy
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: (data) => {
+                let positionParameters = location.pathname.indexOf('?');
+                let url1 = location.pathname.substring(positionParameters, location.pathname.length);
+                let newURL = url1 + '?';
+                newURL += 'orderBy=' + orderBy;
+                history.pushState({}, '', newURL);
+                $('.product-grid').html(data)
+                // console.log(data)
+            }
+        });
+    })
+})

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use function GuzzleHttp\Promise\all;
 
 class CategoryController extends Controller
 {
@@ -52,12 +54,39 @@ class CategoryController extends Controller
      * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function show($category)
+    public function show(Request $request, $category)
     {
         $cat = Category::where('id', $category)->first();
 
+        $products = Product::where('cat_id', $cat['id'])->get();
+
+        if(isset($request->orderBy)){
+            if ($request->orderBy == 'price-low-high'){
+                $products = Product::where('cat_id',$cat['id'])->orderBy('price')->get();
+            }
+            if ($request->orderBy == 'price-high-low'){
+                $products = Product::where('cat_id',$cat['id'])->orderBy('price','desc')->get();
+            }
+            if ($request->orderBy == 'name-a-z'){
+                $products = Product::where('cat_id',$cat['id'])->orderBy('title')->get();
+            }
+            if ($request->orderBy == 'name-z-a'){
+                $products = Product::where('cat_id',$cat['id'])->orderBy('title','desc')->get();
+            }
+        }
+
+        if($request->ajax()){
+            return view('ajax.order-by', [
+                'products' => $products
+            ])->render();
+        }
+//        if ($request->ajax()) {
+//            return $request->orderBy;
+//        }
+
         return view('categories.index', [
-            'cat' => $cat
+            'cat' => $cat,
+            'products' => $products
         ]);
     }
 
