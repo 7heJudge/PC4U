@@ -254,14 +254,6 @@
                                     </div>
                                 </div>
                             </label>
-
-                            <label>
-                                Show:
-                                <select class="input-select">
-                                    <option value="0">20</option>
-                                    <option value="1">50</option>
-                                </select>
-                            </label>
                         </div>
                         {{--                        <ul class="store-grid">--}}
                         {{--                            <li class="active"><i class="fa fa-th"></i></li>--}}
@@ -283,7 +275,7 @@
                                     $image = 'no_image.png';
                                 }
                             @endphp
-                            <div class="col-md-4 col-xs-6">
+                            <div class="col-md-4 col-xs-6 height-460px">
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="{{ $product['img'] }}" alt="">
@@ -333,18 +325,13 @@
 
                         @endforeach
                     </div>
+{{--                    {{ $products->appends(request()->query())->links() }}--}}
                     <!-- /store products -->
 
                     <!-- store bottom filter -->
                     <div class="store-filter clearfix">
-                        <span class="store-qty">Showing {{ $cat->products->count() }} products</span>
-                        <ul class="store-pagination">
-                            <li class="active">1</li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
+                        <span class="store-qty">Showing {{ $products->count() }} products</span>
+                        {{$products->appends(request()->query())->links('pagination.index')}}
                     </div>
                     <!-- /store bottom filter -->
                 </div>
@@ -355,5 +342,39 @@
         <!-- /container -->
     </div>
     <!-- /SECTION -->
+@endsection
+
+@section('custom_js')
+    <script>
+        $(document).ready(function () {
+            $('.product_sorting_btn').click(function () {
+                let orderBy = $(this).data('order');
+                let url = $(this).data('href');
+                $('.sorting_text').text($(this).find('span').text())
+                // console.log(orderBy);
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    data: {
+                        orderBy: orderBy,
+                        page: {{ isset($_GET['page']) ? $_GET['page'] : 1 }},
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: (data) => {
+                        let positionParameters = location.pathname.indexOf('?');
+                        let url1 = location.pathname.substring(positionParameters, location.pathname.length);
+                        let newURL = url1 + '?';
+                        newURL += 'orderBy=' + orderBy + "&page={{ isset($_GET['page']) ? $_GET['page'] : 1 }}";
+                        history.pushState({}, '', newURL);
+                        $('.product-grid').html(data)
+                        // console.log(data)
+                    }
+                });
+            })
+        })
+    </script>
 @endsection
 
