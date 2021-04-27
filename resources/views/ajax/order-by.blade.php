@@ -11,13 +11,15 @@
     @endphp
     <div class="col-md-4 col-xs-6 height-460px">
         <div class="product">
-            <div class="product-img">
-                <img src="{{ $product['img'] }}" alt="">
-                <div class="product-label">
-                    {{--<span class="sale">-30%</span>
-                    <span class="new">NEW</span>--}}
+            <a href="{{ route('product', [$product['cat_id'],$product['id']]) }}">
+                <div class="product-img">
+                    <img src="{{ $product['img'] }}" alt="">
+                    <div class="product-label">
+                        {{--<span class="sale">-30%</span>
+                        <span class="new">NEW</span>--}}
+                    </div>
                 </div>
-            </div>
+            </a>
             <div class="product-body">
                 {{--                                        @foreach($categories as $category)--}}
                 {{--                                            @if ($category['id'] == $product['cat_id'])--}}

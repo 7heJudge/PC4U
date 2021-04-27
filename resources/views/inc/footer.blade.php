@@ -23,7 +23,7 @@
                         <h3 class="footer-title">Категории</h3>
                         <ul class="footer-links">
                             @foreach($categories as $category)
-                            <li><a href="#">{{ $category['title'] }}</a></li>
+                            <li><a href="{{ route('categories', $category['id']) }}">{{ $category['title'] }}</a></li>
 {{--                            <li><a href="#">Laptops</a></li>--}}
 {{--                            <li><a href="#">Smartphones</a></li>--}}
 {{--                            <li><a href="#">Cameras</a></li>--}}
