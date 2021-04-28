@@ -2319,9 +2319,3 @@ textarea.input {
     }
 }
 
-@media (max-width: 482px) {
-    .height-460px {
-        height: 660px;
-    }
-}
-

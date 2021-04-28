@@ -327,7 +327,7 @@
 
                     <!-- store bottom filter -->
                     <div class="store-filter clearfix">
-                        <span class="store-qty">Showing {{ $products->count() }} products</span>
+                        <span class="store-qty">Показывает {{ $products->count() }} товаров</span>
                         {{$products->appends(request()->query())->links('pagination.index')}}
                     </div>
                     <!-- /store bottom filter -->

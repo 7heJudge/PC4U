@@ -30,7 +30,13 @@ class HomeController extends Controller
     }
     public function main_page()
     {
-        return view('home.index');
+        $products = Product::orderBy('created_at', 'desc')->get()->take(6);
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+
+        return view('home.index' ,[
+            'products' => $products,
+            'categories' => $categories
+        ]);
     }
     public function store(Request $request)
     {

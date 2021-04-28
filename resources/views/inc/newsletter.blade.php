@@ -6,23 +6,20 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="newsletter">
-                    <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                    <p>Подпишитесь на рассылку <strong>НОВОСТЕЙ</strong></p>
                     <form>
-                        <input class="input" type="email" placeholder="Enter Your Email">
-                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                        <input class="input" type="email" placeholder="Укажите Вашу почту">
+                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Подписаться</button>
                     </form>
                     <ul class="newsletter-follow">
                         <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="https://t.me/volodya_apaciti"><i class="fa fa-telegram"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/sil_yan23/"><i class="fa fa-instagram"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="https://github.com/7heJudge"><i class="fa fa-github"></i></a>
                         </li>
                     </ul>
                 </div>

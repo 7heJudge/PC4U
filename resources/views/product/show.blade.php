@@ -89,13 +89,13 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <a class="review-link" href="#">10 Отзыв(ов)</a>
+                            <a class="review-link" href="#">10 Review(s) | Add your review</a>
                         </div>
                         <div>
                             <h3 class="product-price">₴{{ $item['price'] }}</h3>
                             @if ($item['quantity'] > 0)
-                            <span class="product-available">В наличии</span>
-                            @else <span class="product-available">Нет в наличии</span>
+                            <span class="product-available">In Stock</span>
+                            @else <span class="product-available">Not available</span>
                             @endif
                         </div>
                         <p><?php echo $item['text']; ?>
@@ -118,23 +118,23 @@
 
                         <div class="add-to-cart">
                             <div class="qty-label">
-                                Кол-во
+                                Qty
                                 <div class="input-number">
                                     <input type="number">
                                     <span class="qty-up">+</span>
                                     <span class="qty-down">-</span>
                                 </div>
                             </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> в корзину</button>
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                         </div>
 
                         <ul class="product-btns">
-                            <li><a href="#"><i class="fa fa-heart-o"></i> в желаемое</a></li>
+                            <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
 {{--                            <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>--}}
                         </ul>
 
                         <ul class="product-links">
-                            <li>Категории:</li>
+                            <li>Category:</li>
                             @foreach($categories as $category)
                                 @if ($category['id'] == $item['cat_id'])
                                     <li><a href="#">{{ $category['title'] }}</a></li>
@@ -143,7 +143,7 @@
                         </ul>
 
                         <ul class="product-links">
-                            <li>Поделится:</li>
+                            <li>Share:</li>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -159,8 +159,9 @@
                     <div id="product-tab">
                         <!-- product tab nav -->
                         <ul class="tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Описание</a></li>
-                            <li><a data-toggle="tab" href="#tab3">Отзывы (3)</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Details</a></li>
+                            <li><a data-toggle="tab" href="#tab3">Reviews (3)</a></li>
                         </ul>
                         <!-- /product tab nav -->
 

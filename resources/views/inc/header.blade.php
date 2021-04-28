@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="cart-btns">
                                     <a href="#">View Cart</a>
-                                    <a href="#">Проверить  <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                         <div class="menu-toggle">
                             <a href="#">
                                 <i class="fa fa-bars"></i>
-                                <span>Меню</span>
+                                <span>Menu</span>
                             </a>
                         </div>
                         <!-- /Menu Toogle -->
