@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::get('/store/category-{cat_id}', [App\Http\Controllers\Admin\CategoryContr
 //})->name('product');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'main_page'])->name('home');
+
+Route::resource('email',EmailController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'profile'])->middleware('verified')->name('profile_home');
 

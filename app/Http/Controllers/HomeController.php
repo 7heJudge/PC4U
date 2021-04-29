@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Email;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -38,6 +40,7 @@ class HomeController extends Controller
             'categories' => $categories
         ]);
     }
+
     public function store(Request $request)
     {
         $paginate = 6;

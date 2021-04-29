@@ -7,8 +7,9 @@
             <div class="col-md-12">
                 <div class="newsletter">
                     <p>Подпишитесь на рассылку <strong>НОВОСТЕЙ</strong></p>
-                    <form>
-                        <input class="input" type="email" placeholder="Укажите Вашу почту">
+                    <form action="{{ route('email.store') }}" method="post">
+                        @csrf
+                        <input class="input" type="email" name="email" placeholder="Укажите Вашу почту">
                         <button class="newsletter-btn"><i class="fa fa-envelope"></i> Подписаться</button>
                     </form>
                     <ul class="newsletter-follow">
