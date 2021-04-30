@@ -35,18 +35,12 @@
                     </div>
                 </div>
                 <!-- /LOGO -->
-
                 <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
-                        <form>
-                            <select class="input-select">
-                                <option value="0">All Categories</option>
-                                <option value="1">Category 01</option>
-                                <option value="1">Category 02</option>
-                            </select>
-                            <input class="input" placeholder="Искать здесь">
-                            <button class="search-btn">Найти</button>
+                        <form action="{{ route('SearchResult') }}" method="get" autocomplete="off">
+                            <input id="search" type="text" name="search" class="input input-select" placeholder="Искать здесь">
+                            <button type="submit" class="search-btn">Найти</button>
                         </form>
                     </div>
                 </div>

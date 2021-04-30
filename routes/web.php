@@ -47,6 +47,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'main_page'])->name
 
 Route::resource('email',EmailController::class);
 
+Route::get('/search/result', [App\Http\Controllers\SearchController::class, 'index'])->name('SearchResult');
+
+Route::get('/autocomplete', [App\Http\Controllers\SearchController::class, 'search']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'profile'])->middleware('verified')->name('profile_home');
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'profile'])->middleware('verified')->name('profile_home');

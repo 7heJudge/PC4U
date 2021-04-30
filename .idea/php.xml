@@ -122,6 +122,7 @@
       <path value="$PROJECT_DIR$/vendor/barryvdh/elfinder-flysystem-driver" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/torann/laravel-meta-tags" />
     </include_path>
   </component>
   <component name="PhpUnit">

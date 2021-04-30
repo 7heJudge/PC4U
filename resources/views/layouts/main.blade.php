@@ -32,6 +32,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
     <script src="https://kit.fontawesome.com/6972bcb946.js" crossorigin="anonymous"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <![endif]-->
@@ -49,6 +50,16 @@
 <script src="/js/nouislider.min.js"></script>
 <script src="/js/jquery.zoom.min.js"></script>
 <script src="/js/main.js"></script>
+<script>
+    var route = "{{ url('/autocomplete') }}";
+    $('#search').typeahead({
+       source: function (term, process) {
+           return $.get(route, { term: term }, function (data) {
+               return process(data);
+           });
+       }
+    });
+</script>
 @yield('custom_js')
 </body>
 </html>
