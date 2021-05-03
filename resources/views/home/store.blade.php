@@ -32,147 +32,81 @@
         <div class="container">
             <!-- row -->
             <div class="row">
-                <!-- ASIDE -->
-                <div id="aside" class="col-md-3">
-                    <!-- aside Widget -->
-                    <div class="aside">
-                        <h3 class="aside-title">Categories</h3>
-                        <div class="checkbox-filter">
+                <form method="get" action="{{ route('store') }}">
+                    <!-- ASIDE -->
+                    <div id="aside" class="col-md-3">
+                        <!-- aside Widget -->
+                        <div class="aside">
+                            <h3 class="aside-title">Категории</h3>
+                            <div class="checkbox-filter">
 
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-1">
-                                <label for="category-1">
-                                    <span></span>
-                                    Laptops
-                                    <small>(120)</small>
-                                </label>
-                            </div>
+                                <div class="input-checkbox">
+                                    <input type="checkbox" id="category-1" name="pc" @if(request()->has('pc')) checked @endif>
+                                    <label for="category-1">
+                                        <span></span>
+                                        Компьютеры
+                                    </label>
+                                </div>
 
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-2">
-                                <label for="category-2">
-                                    <span></span>
-                                    Smartphones
-                                    <small>(740)</small>
-                                </label>
-                            </div>
+                                <div class="input-checkbox">
+                                    <input type="checkbox" id="category-2" name="mouse" @if(request()->has('mouse')) checked @endif>
+                                    <label for="category-2">
+                                        <span></span>
+                                        Мышки
+                                    </label>
+                                </div>
 
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-3">
-                                <label for="category-3">
-                                    <span></span>
-                                    Cameras
-                                    <small>(1450)</small>
-                                </label>
-                            </div>
+                                <div class="input-checkbox">
+                                    <input type="checkbox" id="category-3" name="headset" @if(request()->has('headset')) checked @endif>
+                                    <label for="category-3">
+                                        <span></span>
+                                        Гарнитуры
+                                    </label>
+                                </div>
 
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-4">
-                                <label for="category-4">
-                                    <span></span>
-                                    Accessories
-                                    <small>(578)</small>
-                                </label>
-                            </div>
+                                <div class="input-checkbox">
+                                    <input type="checkbox" id="category-4" name="monitor" @if(request()->has('monitor')) checked @endif>
+                                    <label for="category-4">
+                                        <span></span>
+                                        Мониторы
+                                    </label>
+                                </div>
 
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-5">
-                                <label for="category-5">
-                                    <span></span>
-                                    Laptops
-                                    <small>(120)</small>
-                                </label>
-                            </div>
-
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-6">
-                                <label for="category-6">
-                                    <span></span>
-                                    Smartphones
-                                    <small>(740)</small>
-                                </label>
+                                <div class="input-checkbox">
+                                    <input type="checkbox" id="category-5" name="keyboard" @if(request()->has('keyboard')) checked @endif>
+                                    <label for="category-5">
+                                        <span></span>
+                                        Клавиатуры
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /aside Widget -->
+                        <!-- /aside Widget -->
 
-                    <!-- aside Widget -->
-                    <div class="aside">
-                        <h3 class="aside-title">Price</h3>
-                        <div class="price-filter">
-                            <div id="price-slider"></div>
-                            <div class="input-number price-min">
-                                <input id="price-min" type="number">
-                                <span class="qty-up">+</span>
-                                <span class="qty-down">-</span>
-                            </div>
-                            <span>-</span>
-                            <div class="input-number price-max">
-                                <input id="price-max" type="number">
-                                <span class="qty-up">+</span>
-                                <span class="qty-down">-</span>
+                        <!-- aside Widget -->
+                        <div class="aside">
+                            <h3 class="aside-title">Price</h3>
+                            <div class="price-filter">
+                                <div id="price-slider"></div>
+                                <div class="input-number price-min">
+                                    <input id="price-min" name="price_min" type="number" value="{{ request()->price_min }}">
+                                    <span class="qty-up">+</span>
+                                    <span class="qty-down">-</span>
+                                </div>
+                                <span>-</span>
+                                <div class="input-number price-max">
+                                    <input id="price-max" name="price_max" type="number" value="{{ request()->price_max }}">
+                                    <span class="qty-up">+</span>
+                                    <span class="qty-down">-</span>
+                                </div>
                             </div>
                         </div>
+                        <!-- /aside Widget -->
+                        <button type="submit" class="filter-btn">Фильтр</button>
+                        <a href="{{ route('store') }}" class="clear-btn">Сбросить</a>
                     </div>
-                    <!-- /aside Widget -->
-
-                    <!-- aside Widget -->
-                    <div class="aside">
-                        <h3 class="aside-title">Brand</h3>
-                        <div class="checkbox-filter">
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="brand-1">
-                                <label for="brand-1">
-                                    <span></span>
-                                    SAMSUNG
-                                    <small>(578)</small>
-                                </label>
-                            </div>
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="brand-2">
-                                <label for="brand-2">
-                                    <span></span>
-                                    LG
-                                    <small>(125)</small>
-                                </label>
-                            </div>
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="brand-3">
-                                <label for="brand-3">
-                                    <span></span>
-                                    SONY
-                                    <small>(755)</small>
-                                </label>
-                            </div>
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="brand-4">
-                                <label for="brand-4">
-                                    <span></span>
-                                    SAMSUNG
-                                    <small>(578)</small>
-                                </label>
-                            </div>
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="brand-5">
-                                <label for="brand-5">
-                                    <span></span>
-                                    LG
-                                    <small>(125)</small>
-                                </label>
-                            </div>
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="brand-6">
-                                <label for="brand-6">
-                                    <span></span>
-                                    SONY
-                                    <small>(755)</small>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /aside Widget -->
-                </div>
-                <!-- /ASIDE -->
+                    <!-- /ASIDE -->
+                </form>
 
                 <!-- STORE -->
                 <div id="store" class="col-md-9">

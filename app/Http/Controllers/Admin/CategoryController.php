@@ -56,11 +56,40 @@ class CategoryController extends Controller
      */
     public function show(Request $request, $category)
     {
+//        dd($category);
+        $productsQuery = Product::query();
+        if ($request->filled('price_min')) {
+            $productsQuery->where('price', '>=', $request->price_min);
+        }
+
+        if ($request->filled('price_max')) {
+            $productsQuery->where('price', '<=', $request->price_max);
+        }
+
+        if ($request->has('pc')) {
+            $productsQuery->where('cat_id', 1);
+        }
+
+        if ($request->has('mouse')) {
+            $productsQuery->where('cat_id', 2);
+        }
+
+        if ($request->has('headset')) {
+            $productsQuery->where('cat_id', 3);
+        }
+
+        if ($request->has('monitor')) {
+            $productsQuery->where('cat_id', 4);
+        }
+
+        if ($request->has('keyboard')) {
+            $productsQuery->where('cat_id', 5);
+        }
         $cat = Category::where('id', $category)->first();
 
         $paginate = 2;
 
-        $products = Product::where('cat_id', $cat['id'])->paginate($paginate);
+        $products = $productsQuery->where('cat_id', $cat['id'])->paginate($paginate)->withPath('?' . $request->getQueryString());
 
         if(isset($request->orderBy)){
             if ($request->orderBy == 'price-low-high'){

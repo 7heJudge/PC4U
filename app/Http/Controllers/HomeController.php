@@ -43,8 +43,38 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+//        dd($request->all());
+        $productsQuery = Product::query();
+        if ($request->filled('price_min')) {
+            $productsQuery->where('price', '>=', $request->price_min);
+        }
+
+        if ($request->filled('price_max')) {
+            $productsQuery->where('price', '<=', $request->price_max);
+        }
+
+        if ($request->has('pc')) {
+            $productsQuery->where('cat_id', 1);
+        }
+
+        if ($request->has('mouse')) {
+            $productsQuery->where('cat_id', 2);
+        }
+
+        if ($request->has('headset')) {
+            $productsQuery->where('cat_id', 3);
+        }
+
+        if ($request->has('monitor')) {
+            $productsQuery->where('cat_id', 4);
+        }
+
+        if ($request->has('keyboard')) {
+            $productsQuery->where('cat_id', 5);
+        }
+
         $paginate = 6;
-        $products = Product::orderBy('created_at', 'desc')->paginate($paginate);
+        $products = $productsQuery->orderBy('created_at', 'desc')->paginate($paginate)->withPath('?' . $request->getQueryString());
         $categories = Category::orderBy('created_at', 'DESC')->get();
 
         if(isset($request->orderBy)){
