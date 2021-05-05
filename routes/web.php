@@ -39,10 +39,6 @@ Route::get('/store/category-{cat_id}/{id}', [App\Http\Controllers\Admin\ProductC
 
 Route::get('/store/category-{cat_id}', [App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('categories');
 
-//Route::get('/{cat_id}/{id}', function () {
-//    return view('product.show');
-//})->name('product');
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'main_page'])->name('home');
 
 Route::resource('email',EmailController::class);
@@ -53,7 +49,9 @@ Route::get('/autocomplete', [App\Http\Controllers\SearchController::class, 'sear
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'profile'])->middleware('verified')->name('profile_home');
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'profile'])->middleware('verified')->name('profile_home');
+Route::get('/add-to-cart/{id}', [App\Http\Controllers\Admin\ProductController::class, 'getAddToCart'])->name('addToCart');
+
+Route::get('/shopping-cart', [App\Http\Controllers\Admin\ProductController::class, 'getCart'])->name('shoppingCart');
 
 //Section Email Verification------------------------------------------------------------------------------------------------
 Route::get('/email/verify', function () {

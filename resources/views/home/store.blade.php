@@ -41,7 +41,8 @@
                             <div class="checkbox-filter">
 
                                 <div class="input-checkbox">
-                                    <input type="checkbox" id="category-1" name="pc" @if(request()->has('pc')) checked @endif>
+                                    <input type="checkbox" id="category-1" name="pc"
+                                           @if(request()->has('pc')) checked @endif>
                                     <label for="category-1">
                                         <span></span>
                                         Компьютеры
@@ -49,7 +50,8 @@
                                 </div>
 
                                 <div class="input-checkbox">
-                                    <input type="checkbox" id="category-2" name="mouse" @if(request()->has('mouse')) checked @endif>
+                                    <input type="checkbox" id="category-2" name="mouse"
+                                           @if(request()->has('mouse')) checked @endif>
                                     <label for="category-2">
                                         <span></span>
                                         Мышки
@@ -57,7 +59,8 @@
                                 </div>
 
                                 <div class="input-checkbox">
-                                    <input type="checkbox" id="category-3" name="headset" @if(request()->has('headset')) checked @endif>
+                                    <input type="checkbox" id="category-3" name="headset"
+                                           @if(request()->has('headset')) checked @endif>
                                     <label for="category-3">
                                         <span></span>
                                         Гарнитуры
@@ -65,7 +68,8 @@
                                 </div>
 
                                 <div class="input-checkbox">
-                                    <input type="checkbox" id="category-4" name="monitor" @if(request()->has('monitor')) checked @endif>
+                                    <input type="checkbox" id="category-4" name="monitor"
+                                           @if(request()->has('monitor')) checked @endif>
                                     <label for="category-4">
                                         <span></span>
                                         Мониторы
@@ -73,7 +77,8 @@
                                 </div>
 
                                 <div class="input-checkbox">
-                                    <input type="checkbox" id="category-5" name="keyboard" @if(request()->has('keyboard')) checked @endif>
+                                    <input type="checkbox" id="category-5" name="keyboard"
+                                           @if(request()->has('keyboard')) checked @endif>
                                     <label for="category-5">
                                         <span></span>
                                         Клавиатуры
@@ -89,13 +94,15 @@
                             <div class="price-filter">
                                 <div id="price-slider"></div>
                                 <div class="input-number price-min">
-                                    <input id="price-min" name="price_min" type="number" value="{{ request()->price_min }}">
+                                    <input id="price-min" name="price_min" type="number"
+                                           value="{{ request()->price_min }}">
                                     <span class="qty-up">+</span>
                                     <span class="qty-down">-</span>
                                 </div>
                                 <span>-</span>
                                 <div class="input-number price-max">
-                                    <input id="price-max" name="price_max" type="number" value="{{ request()->price_max }}">
+                                    <input id="price-max" name="price_max" type="number"
+                                           value="{{ request()->price_max }}">
                                     <span class="qty-up">+</span>
                                     <span class="qty-down">-</span>
                                 </div>
@@ -129,11 +136,16 @@
                                                 <span class="sorting_text">Сортировка</span>
                                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
                                                 <ul>
-                                                    <li class="product_sorting_btn" data-order="default"><span>Стандарт</span></li>
-                                                    <li class="product_sorting_btn" data-order="price-low-high"><span>От дешёвых к дорогим</span></li>
-                                                    <li class="product_sorting_btn" data-order="price-high-low"><span>От дорогих к дешёвым</span></li>
-                                                    <li class="product_sorting_btn" data-order="name-a-z"><span>По названию, от А-Я</span></li>
-                                                    <li class="product_sorting_btn" data-order="name-z-a"><span>По названию, от Я-А</span></li>
+                                                    <li class="product_sorting_btn" data-order="default">
+                                                        <span>Стандарт</span></li>
+                                                    <li class="product_sorting_btn" data-order="price-low-high"><span>От дешёвых к дорогим</span>
+                                                    </li>
+                                                    <li class="product_sorting_btn" data-order="price-high-low"><span>От дорогих к дешёвым</span>
+                                                    </li>
+                                                    <li class="product_sorting_btn" data-order="name-a-z"><span>По названию, от А-Я</span>
+                                                    </li>
+                                                    <li class="product_sorting_btn" data-order="name-z-a"><span>По названию, от Я-А</span>
+                                                    </li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -193,18 +205,14 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                         </div>
-                                        <div class="product-btns">
-                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                                    class="tooltipp">В желаемое</span></button>
-                                            {{--                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span--}}
-                                            {{--                                                    class="tooltipp">add to compare</span></button>--}}
-                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Просмотр</span>
-                                            </button>
-                                        </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> В корзину
-                                        </button>
+                                        <a
+                                            href="{{ route('addToCart', $product['id']) }}">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> В
+                                                корзину
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

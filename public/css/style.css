@@ -610,9 +610,23 @@ textarea.input {
   margin: 0px -17px -17px;
 }
 
+.txt-wht {
+    color: white;
+    font-weight: 400;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.txt-wht:hover {
+    color: #D10024;
+    font-weight: 400;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
 .cart-dropdown .cart-btns>a {
   display: inline-block;
-  width: calc(50% - 0px);
+  width: calc(100% - 0px);
   padding: 12px;
   background-color: #D10024;
   color: #FFF;

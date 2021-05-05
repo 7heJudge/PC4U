@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -125,4 +127,27 @@ class ProductController extends Controller
 
         return redirect()->back()->withSuccess('Товар был успешно удален!');
     }
+
+    public function getAddToCart(Request $request, $id){
+        $product = Product::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id);
+
+        $request->session()->put('cart', $cart);
+//        dd($request->session()->get('cart'));
+        return redirect()->back();
+    }
+    public function getCart(){
+        if(!Session::has('cart')){
+            return view('home.shoppingCart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('home.shoppingCart', [
+            'products' => $cart->items,
+            'totalQty' => $cart->totalQty,
+            'totalPrice' => $cart->totalPrice]);
+    }
+
 }
