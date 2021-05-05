@@ -120,18 +120,13 @@
                             <div class="qty-label">
                                 Кол-во
                                 <div class="input-number">
-                                    <input type="number">
+                                    <input type="number" value=1>
                                     <span class="qty-up">+</span>
                                     <span class="qty-down">-</span>
                                 </div>
                             </div>
                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> в корзину</button>
                         </div>
-
-                        <ul class="product-btns">
-                            <li><a href="#"><i class="fa fa-heart-o"></i> в желаемое</a></li>
-{{--                            <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>--}}
-                        </ul>
 
                         <ul class="product-links">
                             <li>Категория:</li>

@@ -4,12 +4,12 @@
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-phone"></i> +380 (68) 463 31 48</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> pc4u_sender@yan.insave.ovh</a></li>
-                <li><a href="#"><i class="fa fa-map-marker"></i> Украина, Днепр</a></li>
+                <li style="color:white"><i class="fa fa-phone"></i> +380 (68) 463 31 48</li>
+                <li style="color:white"><i class="fa fa-envelope-o"></i> pc4u_sender@yan.insave.ovh</li>
+                <li style="color:white"><i class="fa fa-map-marker"></i> Украина, Днепр</li>
             </ul>
             <ul class="header-links pull-right">
-                <li><a href="#"><i class="fa fa-money"></i> UAH</a></li>
+                <li style="color:white"><i class="fa fa-money"></i> UAH</li>
                 @if (!Auth::user())
                 <li><a href="{{ route('login') }}"><i class="fa fa-user-o"></i> Мой аккаунт</a></li>
                 @else
@@ -49,16 +49,6 @@
                 <!-- ACCOUNT -->
                 <div class="col-md-3 clearfix">
                     <div class="header-ctn">
-                        <!-- Wishlist -->
-                        <div>
-                            <a href="#">
-                                <i class="fa fa-heart-o"></i>
-                                <span>Ваш список желаемого</span>
-                                <div class="qty">2</div>
-                            </a>
-                        </div>
-                        <!-- /Wishlist -->
-
                         <!-- Cart -->
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
@@ -119,5 +109,11 @@
         <!-- container -->
     </div>
     <!-- /MAIN HEADER -->
+    @if(session('success'))
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <h4><i class="icon fa fa-check"></i>{{session('success')}}</h4>
+        </div>
+    @endif
 </header>
 <!-- /HEADER -->

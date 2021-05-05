@@ -54,7 +54,7 @@ class EmailController extends Controller
         ];
 
         Mail::to($request->email)->send(new SendEmail($details));
-        return redirect()->back()->withSuccess('Категория была успешно обновлена!');
+        return redirect()->back()->withSuccess('Вы успешно подписались на рассылку НОВОСТЕЙ!');
     }
 
     /**

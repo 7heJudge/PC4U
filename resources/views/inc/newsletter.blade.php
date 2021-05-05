@@ -9,7 +9,7 @@
                     <p>Подпишитесь на рассылку <strong>НОВОСТЕЙ</strong></p>
                     <form action="{{ route('email.store') }}" method="post">
                         @csrf
-                        <input class="input" type="email" name="email" placeholder="Укажите Вашу почту">
+                        <input class="input" type="email" name="email" placeholder="Укажите Вашу почту" required>
                         <button class="newsletter-btn"><i class="fa fa-envelope"></i> Подписаться</button>
                     </form>
                     <ul class="newsletter-follow">
