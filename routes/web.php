@@ -53,6 +53,10 @@ Route::get('/add-to-cart/{id}', [App\Http\Controllers\Admin\ProductController::c
 
 Route::get('/shopping-cart', [App\Http\Controllers\Admin\ProductController::class, 'getCart'])->name('shoppingCart');
 
+Route::get('/checkout', [App\Http\Controllers\Admin\ProductController::class, 'getCheckout'])->name('checkout');
+
+Route::post('/checkout', [App\Http\Controllers\Admin\ProductController::class, 'postCheckout'])->name('checkout');
+
 //Section Email Verification------------------------------------------------------------------------------------------------
 Route::get('/email/verify', function () {
     return view('verify');

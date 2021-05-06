@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Stripe\Charge;
+use Stripe\Stripe;
 
 class ProductController extends Controller
 {
@@ -148,6 +150,42 @@ class ProductController extends Controller
             'products' => $cart->items,
             'totalQty' => $cart->totalQty,
             'totalPrice' => $cart->totalPrice]);
+    }
+
+    public function getCheckout(){
+        if (!Session::has('cart')){
+            return view('home.shoppingCart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $total = $cart->totalPrice;
+        return view('home.checkout', [
+            'total' => $total,
+            'products' => $cart->items,
+        ]);
+    }
+
+    public function postCheckout(Request $request){
+        if (!Session::has('cart')){
+            return redirect()->route('home.shoppingCart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+
+        Stripe::setApiKey('sk_test_51Io3mGLtbArLpPbnnPptdcJGmVQaFoj2JuMIeN05VHSHQBsqlLN8lDPr44MrbbmuCVMoVARcH9Rg8Czn15lqgHgc0042MLpq2L');
+        try {
+            Charge::create([
+                'amount' => $cart->totalPrice * 100,
+                'currency' => 'uah',
+                'source' => $request->input('stripeToken'),
+                'description' => 'Test Charge'
+            ]) ;
+        } catch (\Exception $e) {
+            return redirect()->route('checkout')->with('error', $e->getMessage());
+        }
+
+        Session::forget('cart');
+        return redirect()->route('home')->with('success', 'Покупка прошла успешно!');
     }
 
 }
