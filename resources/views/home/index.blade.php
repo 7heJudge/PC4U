@@ -123,8 +123,7 @@
                                                 </div>
                                             </div>
                                             <div class="add-to-cart">
-                                                <a
-                                                    href="{{ route('addToCart', $product['id']) }}">
+                                                <a href="{{ route('addToCart', $product['id']) }}">
                                                     <button class="add-to-cart-btn"><i
                                                             class="fa fa-shopping-cart"></i> В
                                                         корзину

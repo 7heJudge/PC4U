@@ -5,27 +5,27 @@
 @endsection
 
 @section('content')
-{{--    <!-- BREADCRUMB -->--}}
-{{--    <div id="breadcrumb" class="section">--}}
-{{--        <!-- container -->--}}
-{{--        <div class="container">--}}
-{{--            <!-- row -->--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-md-12">--}}
-{{--                    <ul class="breadcrumb-tree">--}}
-{{--                        <li><a href="#">Home</a></li>--}}
-{{--                        <li><a href="#">All Categories</a></li>--}}
-{{--                        <li><a href="#">Accessories</a></li>--}}
-{{--                        <li><a href="#">Headphones</a></li>--}}
-{{--                        <li class="active">Product name goes here</li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <!-- /row -->--}}
-{{--        </div>--}}
-{{--        <!-- /container -->--}}
-{{--    </div>--}}
-{{--    <!-- /BREADCRUMB -->--}}
+    {{--    <!-- BREADCRUMB -->--}}
+    {{--    <div id="breadcrumb" class="section">--}}
+    {{--        <!-- container -->--}}
+    {{--        <div class="container">--}}
+    {{--            <!-- row -->--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-md-12">--}}
+    {{--                    <ul class="breadcrumb-tree">--}}
+    {{--                        <li><a href="#">Home</a></li>--}}
+    {{--                        <li><a href="#">All Categories</a></li>--}}
+    {{--                        <li><a href="#">Accessories</a></li>--}}
+    {{--                        <li><a href="#">Headphones</a></li>--}}
+    {{--                        <li class="active">Product name goes here</li>--}}
+    {{--                    </ul>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--            <!-- /row -->--}}
+    {{--        </div>--}}
+    {{--        <!-- /container -->--}}
+    {{--    </div>--}}
+    {{--    <!-- /BREADCRUMB -->--}}
 
     <!-- SECTION -->
     <div class="section">
@@ -94,45 +94,49 @@
                         <div>
                             <h3 class="product-price">₴{{ $item['price'] }}</h3>
                             @if ($item['quantity'] > 0)
-                            <span class="product-available">В наличии</span>
+                                <span class="product-available">В наличии</span>
                             @else <span class="product-available">Нет в наличии</span>
                             @endif
                         </div>
                         <p><?php echo $item['text']; ?>
                         </p>
 
-{{--                        <div class="product-options">--}}
-{{--                            <label>--}}
-{{--                                Size--}}
-{{--                                <select class="input-select">--}}
-{{--                                    <option value="0">X</option>--}}
-{{--                                </select>--}}
-{{--                            </label>--}}
-{{--                            <label>--}}
-{{--                                Color--}}
-{{--                                <select class="input-select">--}}
-{{--                                    <option value="0">Red</option>--}}
-{{--                                </select>--}}
-{{--                            </label>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="product-options">--}}
+                        {{--                            <label>--}}
+                        {{--                                Size--}}
+                        {{--                                <select class="input-select">--}}
+                        {{--                                    <option value="0">X</option>--}}
+                        {{--                                </select>--}}
+                        {{--                            </label>--}}
+                        {{--                            <label>--}}
+                        {{--                                Color--}}
+                        {{--                                <select class="input-select">--}}
+                        {{--                                    <option value="0">Red</option>--}}
+                        {{--                                </select>--}}
+                        {{--                            </label>--}}
+                        {{--                        </div>--}}
 
                         <div class="add-to-cart">
-                            <div class="qty-label">
-                                Кол-во
-                                <div class="input-number">
-                                    <input type="number" value=1>
-                                    <span class="qty-up">+</span>
-                                    <span class="qty-down">-</span>
+                            <form action="{{ route('addToCart', $item['id']) }}" method="get">
+                                @csrf
+                                <div class="qty-label">
+                                    Кол-во
+                                    <div class="input-number">
+                                        <input type="number" name="qtyProduct" value=1 max="10">
+                                        <span class="qty-up">+</span>
+                                        <span class="qty-down">-</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> в корзину</button>
+                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> в корзину
+                                </button>
+                            </form>
                         </div>
 
                         <ul class="product-links">
                             <li>Категория:</li>
                             @foreach($categories as $category)
                                 @if ($category['id'] == $item['cat_id'])
-                                    <li><a href="#">{{ $category['title'] }}</a></li>
+                                    <li>{{ $category['title'] }}</li>
                                 @endif
                             @endforeach
                         </ul>
@@ -266,7 +270,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="review-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua</p>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -282,7 +288,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="review-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua</p>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -298,7 +306,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="review-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua</p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -323,11 +333,16 @@
                                                 <div class="input-rating">
                                                     <span>Your Rating: </span>
                                                     <div class="stars">
-                                                        <input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-                                                        <input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-                                                        <input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-                                                        <input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-                                                        <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+                                                        <input id="star5" name="rating" value="5" type="radio"><label
+                                                            for="star5"></label>
+                                                        <input id="star4" name="rating" value="4" type="radio"><label
+                                                            for="star4"></label>
+                                                        <input id="star3" name="rating" value="3" type="radio"><label
+                                                            for="star3"></label>
+                                                        <input id="star2" name="rating" value="2" type="radio"><label
+                                                            for="star2"></label>
+                                                        <input id="star1" name="rating" value="1" type="radio"><label
+                                                            for="star1"></label>
                                                     </div>
                                                 </div>
                                                 <button class="primary-btn">Submit</button>

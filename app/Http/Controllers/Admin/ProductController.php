@@ -132,7 +132,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->add($product, $product->id);
+        $cart->add($product, $product->id, $request->qtyProduct);
 
         $request->session()->put('cart', $cart);
 //        dd($request->session()->get('cart'));
