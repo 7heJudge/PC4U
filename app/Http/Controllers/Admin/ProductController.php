@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use Stripe\Charge;
 use Stripe\Stripe;
 
@@ -174,12 +176,19 @@ class ProductController extends Controller
 
         Stripe::setApiKey('sk_test_51Io3mGLtbArLpPbnnPptdcJGmVQaFoj2JuMIeN05VHSHQBsqlLN8lDPr44MrbbmuCVMoVARcH9Rg8Czn15lqgHgc0042MLpq2L');
         try {
-            Charge::create([
+            $charge = Charge::create([
                 'amount' => $cart->totalPrice * 100,
                 'currency' => 'uah',
                 'source' => $request->input('stripeToken'),
                 'description' => 'Test Charge'
             ]) ;
+            $order = new Order();
+            $order->cart = serialize($cart);
+            $order->address = $request->input('address');
+            $order->name = $request->input('name');
+            $order->payment_id = $charge->id;
+
+            Auth::user()->orders()->save($order);
         } catch (\Exception $e) {
             return redirect()->route('checkout')->with('error', $e->getMessage());
         }
