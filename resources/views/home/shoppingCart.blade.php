@@ -14,6 +14,14 @@
                             <span class="badge">{{ $product['quantity'] }}</span>
                             <strong>{{ $product['item']['title'] }}</strong>
                             <span class="label label-success">₴{{ $product['price'] }}</span>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Уменьшить
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('reduceByOne', $product['item']['id']) }}">Уменьшить на 1</a></li>
+                                    <li><a href="{{ route('remove', $product['item']['id']) }}">Убрать все</a></li>
+                                </ul>
+                            </div>
                         </li>
                     @endforeach
                 </ul>

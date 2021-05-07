@@ -51,6 +51,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'profile'])->mi
 
 Route::get('/add-to-cart/{id}', [App\Http\Controllers\Admin\ProductController::class, 'getAddToCart'])->name('addToCart');
 
+Route::get('/reduce/{id}', [App\Http\Controllers\Admin\ProductController::class, 'getReduceByOne'])->name('reduceByOne');
+
+Route::get('/remove/{id}', [App\Http\Controllers\Admin\ProductController::class, 'getRemoveItem'])->name('remove');
+
 Route::get('/shopping-cart', [App\Http\Controllers\Admin\ProductController::class, 'getCart'])->name('shoppingCart');
 
 Route::get('/checkout', [App\Http\Controllers\Admin\ProductController::class, 'getCheckout'])->middleware(['auth', 'verified'])->name('checkout');
