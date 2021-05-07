@@ -1,13 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.main')
+
+@section('title')
+    My Orders
+@endsection
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Мои заказы</div>
-
-                    <div class="card-body">
                         @foreach($orders as $order)
                             <div class="panel panel-default">
                                 <div class="panel-body">
@@ -21,11 +23,10 @@
                                     </ul>
                                 </div>
                                 <div class="panel-footer">
-                                    <strong>ИТОГО: {{ $order->cart->totalPrice }}</strong>
+                                    <strong>ИТОГО: {{ $order->cart->totalPrice }} ₴</strong>
                                 </div>
                             </div>
                         @endforeach
-                    </div>
                 </div>
             </div>
         </div>

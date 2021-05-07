@@ -13,7 +13,27 @@
                 @if (!Auth::user())
                     <li><a href="{{ route('login') }}"><i class="fa fa-user-o"></i> Мой аккаунт</a></li>
                 @else
-                    <li><a href="{{ route('login') }}"><i class="fa fa-user-o"></i> {{ Auth::user()->name }}</a></li>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"><i
+                                class="fa fa-user-o"></i> {{ Auth::user()->name }}
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="background-color: gray">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Выйти') }}
+                                </a>
+                            </li>
+                            <li><a href="{{ route('orders') }}">Мои заказы</a></li>
+                            @if (true)
+                                <li><a href="{{ route('admin_panel') }}">Админ панель</a></li>
+                            @endif
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </ul>
+                    </div>
                 @endif
             </ul>
         </div>

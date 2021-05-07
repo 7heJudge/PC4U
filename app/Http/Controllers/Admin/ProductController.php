@@ -7,9 +7,11 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 use Stripe\Charge;
 use Stripe\Stripe;
 
