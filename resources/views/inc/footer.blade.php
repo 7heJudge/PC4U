@@ -6,19 +6,18 @@
         <div class="container">
             <!-- row -->
             <div class="row">
-                <div class="col-md-3 col-xs-6">
+                <div class="col-md-4 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Про нас</h3>
-{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>--}}
+                        <h3 class="footer-title">Услуги</h3>
                         <ul class="footer-links">
-                            <li style="color:#b9babc"><i class="fa fa-phone"></i> +380 (68) 463 31 48</li>
-                            <li style="color:#b9babc"><i class="fa fa-envelope-o"></i> pc4u_sender@yan.insave.ovh</li>
-                            <li style="color:#b9babc"><i class="fa fa-map-marker"></i> Украина, Днепр</li>
+                            <li><a href="#">Мой аккаунт</a></li>
+                            <li><a href="#">Корзина</a></li>
+                            <li><a href="#">Мои заказы</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-xs-6">
+                <div class="col-md-4 col-xs-6">
                     <div class="footer">
                         <h3 class="footer-title">Категории</h3>
                         <ul class="footer-links">
@@ -35,28 +34,13 @@
 
                 <div class="clearfix visible-xs"></div>
 
-                <div class="col-md-3 col-xs-6">
+                <div class="col-md-4 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Information</h3>
+                        <h3 class="footer-title">Про нас</h3>
                         <ul class="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Orders and Returns</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">Service</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Track My Order</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li style="color:#b9babc"><i class="fa fa-phone"></i> +380 (68) 463 31 48</li>
+                            <li style="color:#b9babc"><i class="fa fa-envelope-o"></i> pc4u_sender@yan.insave.ovh</li>
+                            <li style="color:#b9babc"><i class="fa fa-map-marker"></i> Украина, Днепр</li>
                         </ul>
                     </div>
                 </div>

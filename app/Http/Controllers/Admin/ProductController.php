@@ -197,4 +197,15 @@ class ProductController extends Controller
         return redirect()->route('home')->with('success', 'Покупка прошла успешно!');
     }
 
+    public function myOrders() {
+        $orders = Auth::user()->orders;
+        $orders->transform(function ($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+        return view('profile.myOrders', [
+            'orders' => $orders
+        ]);
+    }
+
 }

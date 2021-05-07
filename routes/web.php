@@ -57,6 +57,8 @@ Route::get('/checkout', [App\Http\Controllers\Admin\ProductController::class, 'g
 
 Route::post('/checkout', [App\Http\Controllers\Admin\ProductController::class, 'postCheckout'])->middleware(['auth', 'verified'])->name('checkout');
 
+Route::get('/orders', [App\Http\Controllers\Admin\ProductController::class, 'myOrders'])->middleware(['auth', 'verified'])->name('orders');
+
 //Section Email Verification------------------------------------------------------------------------------------------------
 Route::get('/email/verify', function () {
     return view('verify');

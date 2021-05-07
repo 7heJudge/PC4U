@@ -44,13 +44,13 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Войти') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
                             </li>
                         @endif
                     @else
@@ -68,9 +68,13 @@
                                 </a>
                                 @if(Auth::user()->user_role != 'admin')
                                     <a class="dropdown-item" href="{{ route('admin_panel') }}">
-                                        Admin Panel
+                                        Админ панель
                                     </a>
                                 @endif
+
+                                <a class="dropdown-item" href="{{ route('orders') }}">
+                                    Мои заказы
+                                </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
